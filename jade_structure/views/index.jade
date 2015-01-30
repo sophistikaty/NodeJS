@@ -8,3 +8,46 @@ block content
     section
      p
       span This is a span within a p within a section
+  
+  - var name = "Kaitlynn"
+  h1 Hello #{name}!
+
+  - movies = ['Into The Woods', 'Selma', 'Hobbit', 'Inherent Vice', 'Taken 3'];
+  ul prolly gonna see a movie tonight
+   each movie in movies
+    li #{movie}
+  
+  - raining = false
+  - if (raining)
+   p It is raining. Take an umbrella!
+  - else
+   p No rain. Take the bike!
+
+  script.
+   //alert('Jade is crazy cause you can even do inline js')
+   console.log('check it')
+
+  include includes/footer
+
+  mixin users(users)
+   ul
+    each user in users
+     li= user
+  - users = ['Kaitlynn', 'Larry', 'Sean', 'Phil', 'Jess']
+  
+  mixin users(users)
+  - more_users = ['Mark', 'Elena', 'Dave', 'Pete', 'Keiron']
+  mixin users(more_users)
+
+
+
+
+
+
+
+
+
+
+
+
+
