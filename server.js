@@ -1,6 +1,8 @@
 var http = require('http'),
 	url = require('url');
 
+
+
 http.createServer(function (req, res) {
 	var pathname = url.parse(req.url).pathname;
 
@@ -14,10 +16,10 @@ http.createServer(function (req, res) {
 			'Content-Type': 'text/plain'
 		});
 		res.end('About Us\n')
-	} else if (pathname === '/redirect') {
-		res.writeHead(301, {
-			'Location': 'http://philoticconnection.com/'
-		});
+	// } else if (pathname === '/redirect') {
+	// 	res.writeHead(301, {
+	// 		'Location': 'http://philoticconnection.com/'
+		// });
 		res.end();
 	} else {
 		res.writeHead(404, {
