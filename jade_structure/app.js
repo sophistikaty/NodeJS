@@ -23,6 +23,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
+app.get('/about', function(req,res) {
+    res.send('Hello from the about route!');
+});
+
+app.post('/', function (req, res) {
+    res.send(req.body);
+});
+
 app.use('/users', users);
 
 // catch 404 and forward to error handler
