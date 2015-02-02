@@ -22,10 +22,32 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+// app.use('/', routes);
+
+app.get('/', function(req,res) {
+    var user = {
+        first_name: 'Stephen',
+        surname: 'Hawking',
+        address: 'England somewhere',
+        facebook_friends:'198493'
+    };
+    res.render('index.jade', { title: 'User', user: user });
+});
 
 app.get('/about', function(req,res) {
     res.send('Hello from the about route!');
+});
+
+app.get('/contact', function(req,res) {
+    res.send('Hello from the CONTACT route!');
+});
+
+app.get('/products', function(req,res) {
+    res.send('Hello from the PRODUCTS route!');
+});
+
+app.get('/users/:id', function(req, res) {
+    res.send('show content for user id ' + req.params.id);
 });
 
 app.post('/', function (req, res) {

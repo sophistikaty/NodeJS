@@ -3,6 +3,20 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  h1 Passing data through to the view layer
+
+  h3 First Name
+  p= user.first_name
+
+  h3 Surname
+  p= user.surname
+
+  h3 Address
+  p= user.address
+
+  h3 Facebook Friends
+  p= user.facebook_friends
    section#wrapper
     h2 Basic Structure
     section
@@ -22,7 +36,6 @@ block content
       p
        input(type='submit', value= 'Save') 
 
-  
   - var name = "Kaitlynn"
   h1 Hello #{name}!
 
