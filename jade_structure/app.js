@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var fs = require('fs'),
+  data = "Some data I want to write to a file";
 
 var app = express();
 
@@ -32,6 +34,15 @@ app.get('/', function(req,res) {
         facebook_friends:'198493'
     };
     res.render('index.jade', { title: 'User', user: user });
+});
+
+
+fs.writeFile('file.txt', data, function (err) {
+  if (!err) {
+    console.log('Wrote data to file.txt');
+  } else {
+    throw err;
+  }
 });
 
 app.get('/about', function(req,res) {
