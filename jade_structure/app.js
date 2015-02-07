@@ -1,3 +1,5 @@
+console.log(process.env.SECRET_KEY);
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -8,7 +10,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var fs = require('fs'),
-  data = "Some data I want to write to a file";
+  data = "Some data I want to write to a file. Also, hello from Kaitlynn via the magic of Node.js";
 
 var app = express();
 
@@ -44,6 +46,14 @@ fs.writeFile('file.txt', data, function (err) {
     throw err;
   }
 });
+
+fs.readFile('file.txt', 'utf8', function (err, data) {
+  if (!err) {
+    console.log(data);
+  } else {
+    throw err;
+  }
+}); 
 
 app.get('/about', function(req,res) {
     res.send('Hello from the about route!');
